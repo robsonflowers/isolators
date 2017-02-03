@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^.*/index.php
+RewriteRule ^(.*)$ / [R=301,L]
+RewriteRule ^([a-z_-]+)/$ index.php?page=$1 [NC,L]
+RewriteRule ^([a-z_-]+)$ http://%{HTTP_HOST}/isolators/$1/ [L,R=301]
+
+
+RewriteRule ^(contratos)\/([0-9_-]+)/$ index.php?page=$1&registrocontrato=$2 [NC,L]
+RewriteRule ^(contratos)\/([0-9_-]+)$ http://%{HTTP_HOST}/isolators/$1/$2/ [L,R=301]
+
+RewriteRule ^(sistema)\/([a-z_-]+)/$ index.php?page=$1&subpage=$2 [NC,L]
+RewriteRule ^(sistema)\/([a-z_-]+)$ http://%{HTTP_HOST}/isolators/$1/$2/ [L,R=301]
+
+RewriteRule ^(logout)\/([a-f0-9_-]+)/$ index.php?page=$1&token=$2 [NC,L]
+RewriteRule ^(logout)\/([a-f0-9_-]+)$ http://%{HTTP_HOST}/isolators/$1/$2/ [L,R=301]
+#RewriteRule ^(contratos|conta|relatorios)\/([a-zA-Z0-9_-]+)$ http://%{HTTP_HOST}/isolators/$1/ [L,R=301]
+#RewriteRule ^(contratos|conta|relatorios)\/([a-zA-Z0-9_-]+)/$ http://%{HTTP_HOST}/isolators/$1/ [L,R=301]
+###&termopesquisa=$3

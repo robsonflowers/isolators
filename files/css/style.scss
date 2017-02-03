@@ -1,0 +1,285 @@
+$hamburger-layer-color                     : white !default;
+@import "hamburgers/hamburgers.scss";
+.text-lightcoral{color: lightcoral}
+.text-lightblue{color: lightblue}
+.text-lightslategray{color: lightslategray}
+.text-lightgreen{color: lightgreen}
+.text-lightseagreen{color: lightseagreen}
+.text-lightsalmon{color: lightsalmon}
+
+body {
+    padding-top: 44px;
+    background-color: #E9EAED /*#eceff1;*/
+    /*background-color: #736D6D*/
+}
+.background-color-1{background-color: #596778}
+
+@import 'mixins';
+.login-title{
+    line-height: 35px;
+    font-size: 26px;
+    font-weight: 300;
+    color: #aaa;
+    text-align: center;
+    text-shadow: 0 1px rgba(white, .75);
+    background: #f7f7f7;
+}
+.top-colored-border {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    width: 100%;
+    background: #c4e17f;
+    border-radius: 4px 4px 0 0;
+    @include linear-gradient(left,
+                             #c4e17f, #c4e17f 12.5%,
+                             #f7fdca 12.5%, #f7fdca 25%,
+                             #fecf71 25%, #fecf71 37.5%,
+                             #f0776c 37.5%, #f0776c 50%,
+                             #db9dbe 50%, #db9dbe 62.5%,
+                             #c49cde 62.5%, #c49cde 75%,
+                             #669ae1 75%, #669ae1 87.5%,
+                             #62c2e4 87.5%, #62c2e4);
+  
+}
+
+.bordas-topo-retas{border-top-left-radius: 0; border-top-right-radius: 0}
+   
+.gradient{
+    background: rgba(198,68,252,1);
+background: -moz-linear-gradient(45deg, rgba(198,68,252,1) 0%, rgba(231,56,39,1) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(198,68,252,1)), color-stop(100%, rgba(231,56,39,1)));
+background: -webkit-linear-gradient(45deg, rgba(198,68,252,1) 0%, rgba(231,56,39,1) 100%);
+background: -o-linear-gradient(45deg, rgba(198,68,252,1) 0%, rgba(231,56,39,1) 100%);
+background: -ms-linear-gradient(45deg, rgba(198,68,252,1) 0%, rgba(231,56,39,1) 100%);
+background: linear-gradient(45deg, rgba(198,68,252,1) 0%, rgba(231,56,39,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c644fc', endColorstr='#e73827', GradientType=1 );
+}
+
+
+
+nav{
+    background-color: #2c3e48;//rgb(91, 146, 188);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);  
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2); 
+    /* IE10+ */ 
+/*background-image: -ms-linear-gradient(top, #1AD6FD 0%, #1D62F0 100%);
+
+ Mozilla Firefox  
+background-image: -moz-linear-gradient(top, #1AD6FD 0%, #1D62F0 100%);
+
+ Opera  
+background-image: -o-linear-gradient(top, #1AD6FD 0%, #1D62F0 100%);
+
+ Webkit (Safari/Chrome 10)  
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1AD6FD), color-stop(100, #1D62F0));
+
+ Webkit (Chrome 11+)  
+background-image: -webkit-linear-gradient(top, #1AD6FD 0%, #1D62F0 100%);
+
+ W3C Markup  
+background-image: linear-gradient(to bottom, #1AD6FD 0%, #1D62F0 100%);*/
+}
+.navbar-brand{
+    color: white;
+}
+
+.hamburger{
+    display: none;
+}
+    
+button{
+    color: #ecf0f1;
+}
+.overflow-hidden{
+   overflow-x: hidden;
+}
+.sem-padding{
+    padding-right: 0;
+}
+.sidebar{
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding-top: 30px;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #1f1e24; //rgba(117, 169, 208, 1);//#2c3e48;//rgba(117, 169, 208, 1);
+    /*border-right: 1px solid #2c3e48;*/
+    -webkit-box-shadow: 1px 0 5px 1px rgba(117,169,208,0.5);
+    box-shadow: 1px 0 5px 1px rgba(117,169,208,0.5);
+    &::-webkit-scrollbar {width: 12px;}
+    &::-webkit-scrollbar-track {background-color: #2c3e38;}
+    &::-webkit-scrollbar-thumb {background-color: rgba(255,255,255,0.3);}
+}
+
+
+
+@media (max-width: 768px){
+    .sidebar{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+}
+.sidebar-fechado{
+    display: none;
+}
+
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+}
+.nav-sidebar > li > a:hover {
+    color: #fff;
+    background-color: #428bca;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+
+.panel .panel-heading{
+    background-color: #2c3e50;
+    color: black;
+}
+
+/** formata elementos que tem backgrounds parallax **/
+.bgParallax {
+    color:#FFF;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative; 
+    min-height: 150px;
+    max-height: 150px;
+    background: url(../images/background/Coaxial_Cable.jpg); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-attachment: fixed;
+}
+
+.main-options{
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+    a{
+        text-decoration: none;
+        color: #3498db;
+        cursor: pointer;
+    }
+    .glyphicon-large{
+        min-height: 50px;
+        line-height: 90px;
+        font-size: 35px;
+        display: block;
+    }
+    &:nth-child(1){
+        border-left: 8px solid #1abc9c;
+        .glyphicon-large{color: #1abc9c;}
+    }
+    &:nth-child(2){
+        border-left: 8px solid #3498db;
+        .glyphicon-large{color: #3498db;}
+    }
+    &:nth-child(3){
+        border-left: 8px solid #9b59b6;
+        .glyphicon-large{color: #9b59b6;}
+    }
+    &:nth-child(4){
+        border-left: 8px solid #34495e;
+        .glyphicon-large{color: #34495e;}
+    }
+}
+
+.table{
+    background-color: white;
+    tbody>tr>td{
+        vertical-align: middle;
+    }
+}
+.visualizar:hover{
+    cursor: pointer;
+}
+
+.left-bordered-box{
+    border-left: 3px solid lightgrey;
+    padding-left: 8px;
+}
+
+.wrap-loader{
+    position: relative;
+    display: none;
+    .loader {
+        position: relative;
+        top:50%;
+	left:50%;
+	margin-left:-50px;
+    }
+}
+
+.cartao{
+    height: 120px;
+    .img-thumbnail{
+        max-height: 80px;
+    }
+}
+
+.perfil-tecnico{
+    .img-circle{
+        max-width: 150px;
+        border: 7px solid palevioletred
+    }
+    .nome-tecnico{
+        color: #2c3e48
+    }
+}
+
+.cadeado{font-size: 20px}
+
+.button-3d {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  background: #f0776c;
+  border: 0;
+  border-bottom: 2px solid #d76b60;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #d76b60;
+  box-shadow: inset 0 -2px #d76b60;
+}
+.button-3d:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+}
