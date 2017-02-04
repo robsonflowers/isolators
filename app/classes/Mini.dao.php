@@ -90,7 +90,29 @@ class MiniDAO {
         }
         return $arrMini;
     } 
-    
+    //  Retorna soma de registros por coluna
+    static public function somaRegistros($coluna, $data, $opcoes) {
+        $where_clause = '';
+        if($opcoes!=''){//se houver setada uma opcao de visualizacao sera configurada uma clausura WHERE
+            if($opcoes=='dia'){
+                $where_clause = 'WHERE DATE(dt_instalacao) = '.date('Y-m-d',$data);
+            }
+            if($opcoes=='mes'){
+                $where_clause = "EXTRACT(MONTH FROM dt_instalacao) = EXTRACT(MONTH FROM $data)
+                                    AND
+                                EXTRACT(YEAR FROM dt_instalacao) = EXTRACT(YEAR FROM $data)";
+            }
+            if($opcoes=='hoje'){
+                $where_clause = 'WHERE DATE(dt_instalacao) = date(now())';
+            }
+        }//se não, nao havera clausura WHERE e sera realizada a soma de todos os valores da coluna
+            
+        $db = Conexao::getInstance();
+        $resultSet = $db->prepare("SELECT SUM($coluna) as total FROM mini_isolator $where_clause");
+        $resultSet->execute();
+        $total = $resultSet->fetch(PDO::FETCH_OBJ);
+        return $total->total;
+    } 
 /*  ############################################################################
     INSERÇÃO
     ############################################################################
