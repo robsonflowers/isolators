@@ -37,7 +37,7 @@
                 <div class="col-md-5 col-md-offset-1">
                 <div class="form-group">
                     <label class="control-label" for="node">Node</label>
-                    <select id="node" name="nodeatendido" class="form-control">
+                    <select id="node" name="nodeatendido" class="form-control" required="">
                         <option value="" selected="">Selecione uma opção</option>
                         <?php $node = NodeDAO::retornaTodos();
                               foreach($node as $node):
