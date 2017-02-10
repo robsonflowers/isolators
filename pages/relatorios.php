@@ -47,6 +47,9 @@ include_once(BASE_PATH.'app/classes/Mini.dao.php');
     </div>
 </div>  
 
+<?php $somaTotal = MiniDAO::totalDescPorTecnico();?>
+
+
 <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
     <div class="row">
         <div class="panel panel-default">
@@ -55,33 +58,22 @@ include_once(BASE_PATH.'app/classes/Mini.dao.php');
                     <table class="table table-bordered table-striped table-condensed text-center" >
                         <thead>
                             <tr>
-                                <th class="">#</th>
-                                <th class="">Data</th>
-                                <th class="">Solicitante</th>
-                                <th class="">Status</th>
+                                <th class="">Nome</th>
+                                <th class="">Total</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                        <?php // foreach($solicitacoes as $solicitacoes):?>
-                            <?php // $tecnico = TecnicoDAO::retornaTecnicoPorLogin($solicitacoes->getTecnico());?>
+                        <?php foreach($somaTotal as $somaTotal):?>
                         <tr>
-                            <td><a href="<?php echo BASE_URL; ?>solicitacoes/gerenciar-solicitacoes/<?php // echo $solicitacoes->getIdsolicitacao();?>/" class="visualizar"><span class="visualizar-conteudo" hidden=""><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></span><span class="visualizar-valor"><?php // echo $solicitacoes->getIdsolicitacao()?></span></a></td>
-                            <td><?php // echo strftime('%d %b %y', strtotime($solicitacoes->getData_solicitacao()));?></td>
                             <td>
-                                <a href="<?php echo BASE_URL; ?>solicitacoes/gerenciar-solicitacoes/<?php // echo $tecnico->getLogin()?>/" data-tecnico="<?php // echo $tecnico->getLogin()?>" class="showPop">
-                                    <?php // echo $tecnico->getNome_tecnico();?>
-                                </a>
-                                
+                            <?php echo $somaTotal['colaborador_instalou'];?>
                             </td>
-
-                            
                             <td>
-                                <span class="label label-<?php // echo $label_color;?>">
-                                    <?php // echo $status;?>
-                                </span>
+                            <?php echo $somaTotal['total'];?>    
                             </td>
                         </tr>
-                        <?php // endforeach;?>
+                        <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>
