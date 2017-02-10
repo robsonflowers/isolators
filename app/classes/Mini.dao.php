@@ -113,6 +113,25 @@ class MiniDAO {
         $total = $resultSet->fetch(PDO::FETCH_OBJ);
         return $total->total;
     } 
+    //  Retorna soma total de mini-isolators por tecnico, em ordem de quem instalou mais
+    static public function totalDescPorTecnico() {
+        $db = Conexao::getInstance();
+        $resultSet = $db->query("SELECT c.nome_colaborador AS colaborador_instalou, 
+                                 SUM( m.mini_inst_emta ) + SUM( m.mini_sub_emta ) +
+                                 SUM( m.mini_inst_decoder ) + SUM( m.mini_sub_decoder )
+                                 AS total
+                                 FROM mini_isolator AS m
+                                 INNER JOIN colaborador AS c ON c.cod_colaborador = m.colaborador_instalou
+                                 GROUP BY m.colaborador_instalou, c.nome_colaborador
+                                 ORDER BY total DESC");
+        $arrMini = array();
+        foreach ($resultSet as $linha) {
+            
+            $arrMini[] = array("colaborador_instalou" => $linha['colaborador_instalou'],"total" => $linha['total']);
+            
+        }
+        return $arrMini;
+    } 
 /*  ############################################################################
     INSERÇÃO
     ############################################################################
