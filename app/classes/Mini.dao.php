@@ -126,9 +126,24 @@ class MiniDAO {
                                  ORDER BY total DESC");
         $arrMini = array();
         foreach ($resultSet as $linha) {
-            
             $arrMini[] = array("colaborador_instalou" => $linha['colaborador_instalou'],"total" => $linha['total']);
-            
+        }
+        return $arrMini;
+    } 
+    //  Retorna soma total de mini-isolators por NODE, em ordem do node com mais mini
+    static public function totalDescPorNode() {
+        $db = Conexao::getInstance();
+        $resultSet = $db->query("SELECT n.node, 
+                                SUM(m.mini_inst_emta) + SUM(m.mini_sub_emta) +
+                                SUM(m.mini_inst_decoder) + SUM(m.mini_sub_decoder)
+                                AS total
+                                FROM mini_isolator AS m
+                                RIGHT JOIN node as n ON n.cod_node = m.node_atendido
+                                GROUP BY m.node_atendido, n.node
+                                ORDER BY total DESC");
+        $arrMini = array();
+        foreach ($resultSet as $linha) {
+            $arrMini[] = array("node" => $linha['node'],"total" => $linha['total']);
         }
         return $arrMini;
     } 
