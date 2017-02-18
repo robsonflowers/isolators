@@ -17,10 +17,10 @@ include_once(BASE_PATH.'app/classes/Mini.dao.php');
                             $inst_emta = MiniDAO::somaRegistros('mini_inst_emta', '', '');
                             $sub_emta = MiniDAO::somaRegistros('mini_sub_emta', '', '');
                         ?> 
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn btn-primary btn-lg btn-block" type="button">
                             <strong>INSTALADOS</strong> <span class="badge"><?php echo $inst_emta;?></span>
                         </button>
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn btn-primary btn-lg btn-block" type="button">
                             <strong>SUBSTITUÍDOS</strong> <span class="badge"><?php echo $sub_emta;?></span>
                         </button>
                     </div>    
@@ -32,10 +32,10 @@ include_once(BASE_PATH.'app/classes/Mini.dao.php');
                             $inst_decoder = MiniDAO::somaRegistros('mini_inst_decoder', '', '');
                             $sub_decoder = MiniDAO::somaRegistros('mini_sub_decoder', '', '');
                         ?> 
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn btn-primary btn-lg btn-block" type="button">
                             <strong>INSTALADOS</strong> <span class="badge"><?php echo $inst_decoder;?></span>
                         </button>
-                        <button class="btn btn-primary" type="button">
+                        <button class="btn btn-primary btn-lg btn-block" type="button">
                             <strong>SUBSTITUÍDOS</strong> <span class="badge"><?php echo $sub_decoder;?></span>
                         </button>
                     </div>    
@@ -60,7 +60,6 @@ include_once(BASE_PATH.'app/classes/Mini.dao.php');
                             <tr>
                                 <th class="">Nome</th>
                                 <th class="">Total</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
